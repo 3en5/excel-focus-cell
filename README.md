@@ -2,7 +2,18 @@
 
 **Highlights the row and column of the active cell in Microsoft Excel — without ever touching your workbook.**
 
-[עברית](README.he.md)
+[עברית](README.he.md) · [More free tools](https://natanor.co.il/free/)
+
+## Download
+
+**[Download the latest release](https://github.com/3en5/excel-focus-cell/releases/latest)** (`ExcelFocusCell-<version>.zip`),
+extract it, and in **Windows PowerShell** inside the extracted folder:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install\Install-User.ps1 -Dll .\Natanor.FocusOverlay.dll
+```
+
+Restart Excel and look for **Focus** on the **View** tab. More options are under [Install](#install).
 
 ![Always mode](docs/images/always.png)
 
@@ -40,8 +51,8 @@ cells, not the formatting, not the Undo history, not the "saved" state.
 
 ## Install
 
-Download `Natanor.FocusOverlay.dll` and the `install` folder from the latest release (or build it — see below), then
-in **Windows PowerShell**:
+Extract the zip from the [latest release](https://github.com/3en5/excel-focus-cell/releases/latest) (or build the DLL
+yourself — see below), then in **Windows PowerShell** inside that folder:
 
 ```powershell
 # Just for me (no admin rights needed)
@@ -112,5 +123,7 @@ versions, multiple monitors with different scaling, 200% scaling, Protected View
 ## Credits
 
 Developed by **[KALIT](https://kalit.co.il)** — the development arm of **[Natanor IT Services](https://natanor.co.il)**.
+More free tools: [natanor.co.il/free](https://natanor.co.il/free/).
 
-Licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE). Changes are listed in the [changelog](CHANGELOG.md); to report a security
+problem see [SECURITY.md](SECURITY.md).

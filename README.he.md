@@ -4,7 +4,18 @@
 
 **מדגיש את השורה והעמודה של התא הפעיל ב-Excel, בלי לגעת בקובץ.**
 
-[English](README.md)
+[English](README.md) · [עוד כלים חינמיים](https://natanor.co.il/free/)
+
+## הורדה
+
+**[להורדת הגרסה האחרונה](https://github.com/3en5/excel-focus-cell/releases/latest)** (`ExcelFocusCell-<גרסה>.zip`).
+מחלצים את הקובץ, ומריצים ב-**Windows PowerShell** מתוך התיקייה שחולצה:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File install\Install-User.ps1 -Dll .\Natanor.FocusOverlay.dll
+```
+
+פותחים את Excel מחדש, וההגדרות נמצאות בכרטיסייה **תצוגה**, בקבוצה **מיקוד תא**. אפשרויות נוספות בסעיף [התקנה](#התקנה).
 
 ![מצב תמיד](docs/images/always.png)
 
@@ -37,7 +48,7 @@
 
 ## התקנה
 
-ב-**Windows PowerShell**:
+מחלצים את קובץ ה-zip מ[הגרסה האחרונה](https://github.com/3en5/excel-focus-cell/releases/latest), ומריצים ב-**Windows PowerShell** מתוך התיקייה:
 
 ```powershell
 # רק למשתמש שלי (לא צריך הרשאות מנהל)
@@ -70,6 +81,8 @@ admin\Set-FocusOverlayPolicy.ps1 -Clear     # חזרה לבחירה של כל מ
 
 פותח על ידי **[KALIT](https://kalit.co.il)**, זרוע הפיתוח של **[נתן-אור שירותי IT לעסקים](https://natanor.co.il)**.
 
-ברישיון [MIT](LICENSE).
+עוד כלים חינמיים: [natanor.co.il/free](https://natanor.co.il/free/).
+
+ברישיון [MIT](LICENSE). רשימת השינויים ב-[CHANGELOG](CHANGELOG.md). לדיווח על בעיית אבטחה: [SECURITY.md](SECURITY.md).
 
 </div>
