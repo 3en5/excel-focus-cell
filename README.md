@@ -17,6 +17,9 @@ cells, not the formatting, not the Undo history, not the "saved" state.
   - **Always** — the active row and column are highlighted all the time.
   - **On search** — highlighted only while *Find and Replace* (Ctrl+F) is open, so every *Find Next* is easy to spot.
   - Click the pressed button again to switch off. The choice is remembered per user.
+
+  ![The Focus group on the View tab](docs/images/ribbon.png)
+
 - **Right-to-left sheets** (Hebrew, Arabic) are first-class: tested with and without frozen panes.
 - Frozen panes, split windows, merged cells, zoom, 100% / 125% / 150% display scaling, several workbooks side by side.
 - Mouse clicks pass straight through the highlight; Excel dialogs and menus stay on top of it.
