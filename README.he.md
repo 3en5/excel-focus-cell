@@ -6,6 +6,8 @@
 
 [English](README.md) · [עוד כלים חינמיים](https://natanor.co.il/free/)
 
+הסיפור מאחורי הכלי: [natanor.co.il/blog/excel-focus-cell](https://natanor.co.il/blog/excel-focus-cell/)
+
 ## הורדה
 
 **[להורדת הגרסה האחרונה](https://github.com/3en5/excel-focus-cell/releases/latest)** (`ExcelFocusCell-<גרסה>.zip`).
