@@ -3,6 +3,12 @@
 All notable changes to this project are listed here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- License changed from MIT to the GNU General Public License v3.0 (GPL-3.0-only). Version 1.0.0 remains under MIT.
+
 ## [1.0.0] - 2026-10-21
 
 First public release.

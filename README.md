@@ -127,5 +127,5 @@ versions, multiple monitors with different scaling, 200% scaling, Protected View
 Developed by **[KALIT](https://kalit.co.il)** — the development arm of **[Natanor IT Services](https://natanor.co.il)**.
 More free tools: [natanor.co.il/free](https://natanor.co.il/free/).
 
-Licensed under the [MIT License](LICENSE). Changes are listed in the [changelog](CHANGELOG.md); to report a security
+Licensed under the [GNU General Public License v3.0](LICENSE) (GPL-3.0-only) from the next release on; version 1.0.0 was released under the MIT License. Changes are listed in the [changelog](CHANGELOG.md); to report a security
 problem see [SECURITY.md](SECURITY.md).

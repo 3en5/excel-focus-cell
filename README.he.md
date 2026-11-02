@@ -85,6 +85,6 @@ admin\Set-FocusOverlayPolicy.ps1 -Clear     # חזרה לבחירה של כל מ
 
 עוד כלים חינמיים: [natanor.co.il/free](https://natanor.co.il/free/).
 
-ברישיון [MIT](LICENSE). רשימת השינויים ב-[CHANGELOG](CHANGELOG.md). לדיווח על בעיית אבטחה: [SECURITY.md](SECURITY.md).
+ברישיון [GPLv3](LICENSE), החל מהגרסה הבאה. גרסה 1.0.0 שוחררה ברישיון MIT. רשימת השינויים ב-[CHANGELOG](CHANGELOG.md). לדיווח על בעיית אבטחה: [SECURITY.md](SECURITY.md).
 
 </div>
