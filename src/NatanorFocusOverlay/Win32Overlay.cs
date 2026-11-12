@@ -37,16 +37,36 @@ namespace Natanor.FocusOverlay
                 if (N.RegisterClassEx(ref wc) == 0) Log.Write("register-class-failed " + Marshal.GetLastWin32Error());
                 _registered = true;
             }
-            _hwnd = N.CreateWindowEx(N.WS_EX_LAYERED | N.WS_EX_TRANSPARENT | N.WS_EX_NOACTIVATE | N.WS_EX_TOOLWINDOW,
-                ClassName, "", N.WS_POPUP, 0, 0, 0, 0, _owner, IntPtr.Zero, N.GetModuleHandle(null), IntPtr.Zero);
-            if (_hwnd == IntPtr.Zero) Log.Write("create-window-failed " + Marshal.GetLastWin32Error());
+            CreateOverlayWindow(_owner);
             _memDc = N.CreateCompatibleDC(IntPtr.Zero);
+        }
+
+        // Owned popup windows are destroyed by Windows when their owner is destroyed.
+        // Recreate the overlay instead of trying to re-parent a stale HWND.
+        private void CreateOverlayWindow(IntPtr owner)
+        {
+            _owner = owner;
+            _hwnd = N.CreateWindowEx(N.WS_EX_LAYERED | N.WS_EX_TRANSPARENT | N.WS_EX_NOACTIVATE | N.WS_EX_TOOLWINDOW,
+                ClassName, "", N.WS_POPUP, 0, 0, 0, 0, owner, IntPtr.Zero, N.GetModuleHandle(null), IntPtr.Zero);
+            _visible = false;
+            if (_hwnd == IntPtr.Zero) Log.Write("create-window-failed " + Marshal.GetLastWin32Error());
         }
 
         // rects are in screen pixels; bounds is the grid rect the overlay may cover
         public void Show(IList<PxRect> rects, IntPtr owner, PxRect bounds)
         {
-            if (owner != _owner) { Hide(); N.SetWindowLongPtr(_hwnd, N.GWLP_HWNDPARENT, owner); _owner = owner; }
+            if (_hwnd == IntPtr.Zero || !N.IsWindow(_hwnd) || owner != _owner)
+            {
+                if (_hwnd != IntPtr.Zero && N.IsWindow(_hwnd))
+                {
+                    Hide();
+                    N.DestroyWindow(_hwnd);
+                }
+                _hwnd = IntPtr.Zero;
+                _visible = false;
+                CreateOverlayWindow(owner);
+            }
+            if (_hwnd == IntPtr.Zero) return;
             if (_dib == IntPtr.Zero || bounds.L != _bounds.L || bounds.T != _bounds.T || bounds.R != _bounds.R || bounds.B != _bounds.B)
                 Allocate(bounds);
             int w = _bounds.R - _bounds.L, h = _bounds.B - _bounds.T;
@@ -115,7 +135,8 @@ namespace Natanor.FocusOverlay
             Hide();
             FreeBitmap();
             if (_memDc != IntPtr.Zero) { N.DeleteDC(_memDc); _memDc = IntPtr.Zero; }
-            if (_hwnd != IntPtr.Zero) { N.DestroyWindow(_hwnd); _hwnd = IntPtr.Zero; }
+            if (_hwnd != IntPtr.Zero && N.IsWindow(_hwnd)) N.DestroyWindow(_hwnd);
+            _hwnd = IntPtr.Zero;
         }
     }
 
